@@ -1,0 +1,31 @@
+{
+  "dataset_info": {
+    "total_samples": 15000,
+    "features": 11,
+    "classes": [
+      "Botnet",
+      "Brute Force",
+      "DDoS",
+      "Data Exfiltration",
+      "Malware C2",
+      "Normal",
+      "Port Scan",
+      "Web Attack"
+    ],
+    "class_distribution": {
+      "Normal": 12782,
+      "Web Attack": 357,
+      "Data Exfiltration": 326,
+      "Brute Force": 315,
+      "DDoS": 310,
+      "Malware C2": 308,
+      "Botnet": 303,
+      "Port Scan": 299
+    }
+  },
+  "model_performance": {
+    "Enhanced Random Forest": 0.9548888888888889,
+    "Gradient Boosting": 0.956,
+    "Isolation Forest": 0.8397777777777777
+  }
+}

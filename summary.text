@@ -1,0 +1,133 @@
+Intrusion Detection System (IDS) Using Machine Learning
+
+Objective
+Build a predictive model to distinguish malicious (“bad”) network connections from normal (“good”) ones, classifying attacks into:
+
+DoS (Denial of Service) – e.g., SYN flood
+
+R2L (Remote to Local) – unauthorized remote access (e.g., password guessing)
+
+U2R (User to Root) – local privilege escalation (e.g., buffer overflow)
+
+Probe – surveillance/scanning (e.g., port scan)
+
+Dataset: KDD Cup intrusion detection dataset (10% subset used). Files include:
+
+kddcup.names: feature list
+
+kddcup.data_10_percent: data subset
+
+training_attack_types: mapping of attacks to categories
+
+Feature Categories
+
+Basic TCP connection features – e.g., duration, protocol_type, service, src_bytes, dst_bytes, flag
+
+Content features (domain knowledge) – e.g., failed logins, root shell flag, number of compromised conditions
+
+Traffic features (2-second window) – e.g., count, serror_rate, same_srv_rate, diff_srv_rate
+
+Target label: Attack Type (normal, dos, probe, r2l, u2r).
+
+Approach
+
+Step 1: Data Setup
+
+Imported Python libraries: Pandas, NumPy, Matplotlib, Seaborn, scikit-learn
+
+Read feature names, added target column
+
+Created attack type dictionary to map raw labels to 5 categories
+
+Loaded dataset into Pandas DataFrame: 494,021 rows × 43 columns
+
+Verified no missing values
+
+Step 2: Data Exploration
+
+Identified categorical features: service, protocol_type, flag
+
+Visualized distributions:
+
+protocol_type – ICMP most frequent, followed by TCP, UDP
+
+logged_in – ~70k successful logins
+
+Attack Type – imbalanced class distribution
+
+Step 3: Preprocessing
+
+Dropped target column, constant/irrelevant features
+
+Separated into X (features) and y (Attack Type)
+
+Step 4: Train/Test Split
+
+67% training / 33% testing
+
+Shapes: X_train (330,994 × 41), X_test (163,027 × 41)
+
+Step 5: Feature Encoding
+
+Mapped protocol_type to ints (icmp=0, tcp=1, udp=2)
+
+Mapped flag to ints (SF=0, S0=1, …)
+
+Step 6: Correlation Analysis
+
+Generated correlation heatmap for numeric features
+
+Removed highly correlated features to reduce redundancy: e.g., num_root, srv_serror_rate, dst_host_same_srv_rate
+
+Dropped low-value features: is_host_login, num_outbound_cmds, service
+
+Step 7: Scaling
+
+Used MinMaxScaler to scale features to [0,1] range
+
+Result: 30 final features after transformation
+
+Step 8: Model Training & Evaluation
+
+Models tested:
+
+Naive Bayes (GaussianNB)
+
+Decision Tree (entropy, max_depth=4)
+
+Random Forest (n_estimators=30)
+
+SVM (gamma='scale')
+
+Logistic Regression (max_iter=1.2M)
+
+Gradient Boosting
+
+Evaluation metrics: Train/Test accuracy, training time, testing time.
+
+Results:
+
+Model	Train Acc.	Test Acc.	Notes
+Naive Bayes	87.95%	87.90%	Simple baseline, fastest to train, lower accuracy.
+Decision Tree	99.39%	99.38%	High accuracy, interpretable, slight overfit risk.
+Random Forest	100%	99.97%	Excellent performance, robust, possible overfitting.
+SVM	99.88%	99.88%	Very high accuracy, long training time.
+Logistic Regression	99.36%	99.36%	Fast, reliable, high accuracy.
+Gradient Boosting	99.91%	99.91%	Strong performance, slower training.
+
+Key Insights:
+
+Data preprocessing (feature removal, encoding, scaling) greatly improved efficiency and model accuracy.
+
+Tree-based models (Random Forest, Gradient Boosting) and SVM achieved near-perfect performance on this dataset.
+
+Naive Bayes is useful as a quick baseline but underperforms on complex, high-dimensional intrusion data.
+
+Logistic Regression offers an efficient trade-off between speed and accuracy.
+
+Dataset is highly separable, hence very high accuracies across most models. Overfitting risk exists for complex models, but train/test parity suggests strong generalization on this dataset split.
+
+Conclusion:
+A well-preprocessed KDD Cup dataset allows multiple ML models to achieve >99% accuracy in intrusion detection. Random Forest and Gradient Boosting are top performers, with SVM close behind, though computational cost differs. Logistic Regression remains a fast and effective choice for deployment. The IDS pipeline demonstrated here can form the basis for real-time network monitoring, with model choice tailored to operational constraints such as training time, interpretability, and system resources.
+
+If you want, I can now rewrite this as a polished GitHub README so it looks professional and project-ready. That would make it ideal for showcasing.
