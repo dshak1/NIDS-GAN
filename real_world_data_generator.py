@@ -12,7 +12,7 @@ import random
 import string    
 
 class CybersecurityDataIntegrator:
-    """Integrates multiple real-world cybersecurity data sources"""
+    """Integrates multiple real-world cybersecurity data sources.  """
     
     def __init__(self):
         self.data_sources = []
