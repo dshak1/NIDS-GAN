@@ -14,7 +14,7 @@ import string
 class CybersecurityDataIntegrator:
     """Integrates multiple real-world cybersecurity data sources.  """
     
-    def __init__(self):
+    def __init__(self):    
         self.data_sources = []
         self.threat_intelligence = {}
         
