@@ -9,7 +9,7 @@ import json
 from datetime import datetime, timedelta
 import hashlib
 import random
-import string
+import string    
 
 class CybersecurityDataIntegrator:
     """Integrates multiple real-world cybersecurity data sources"""
