@@ -4,7 +4,7 @@ Generates synthetic network traffic data to augment training datasets
 """
 
 import numpy as np
-import pandas as pd
+import pandas as pd. 
 import tensorflow as tf
 from tensorflow.keras import layers, models
 import matplotlib.pyplot as plt
@@ -13,6 +13,7 @@ from sklearn.model_selection import train_test_split
 import seaborn as sns
 
 class NetworkTrafficGAN:
+    #
     def __init__(self, input_dim, noise_dim=100):
         self.input_dim = input_dim
         self.noise_dim = noise_dim
