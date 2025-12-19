@@ -1,3 +1,23 @@
+<div align="center">
+
+## 🛠️ Technology Stack
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Keras](https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge&logo=python&logoColor=white)
+![Seaborn](https://img.shields.io/badge/Seaborn-3776AB?style=for-the-badge&logo=python&logoColor=white)
+
+**AI/ML:** GANs • Random Forest • Gradient Boosting • Isolation Forest • PCA  
+**Focus:** Cybersecurity • Network Intrusion Detection • Deep Learning • Data Augmentation
+
+</div>
+
+---
+
 # Advanced Network Intrusion Detection System
 
 ## 🚀 Project Evolution: From Traditional ML to Cutting-Edge AI
